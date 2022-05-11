@@ -1,0 +1,635 @@
+/* Common Styles */
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+/* End of Common STyles */
+
+/* Global styles */
+:root {
+  --main-color: #FFF;
+  --section-padding: 5rem;
+}
+
+.special-heading {
+  font-size: 10rem;
+  font-weight: 900;
+  color: var(--main-color);
+  text-shadow: 1rem 1rem 5rem #000;
+  text-transform: capitalize;
+  letter-spacing: 1rem;
+  text-align: center;
+}
+
+.rotate-180 {
+  transform: rotateY(180deg);
+}
+
+/* Food Animation */
+.section-1 svg.appear {
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: .5s;
+}
+/* End of Global styles */
+/* Start Nav */
+  .navbar {
+    width: 100%;
+    height: 10rem;
+    background-color: #000;
+    position: fixed;
+    top: -14rem;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .2rem .2rem .2rem #000;
+    transition: top .4s;
+  }
+
+  .navbar.change {
+    top: 0rem;
+    transition: .4s .2s;
+  }
+
+  .navbar-link {
+    color: #aaa;
+    margin: 0 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: color .3s;
+  }
+
+  .navbar-link:hover {
+    color: #FFF;
+  }
+
+  .navbar-link i {
+    font-size: 4rem;
+  }
+
+  .navbar-link span {
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: .5rem;
+    margin-top: .5rem;
+  }
+
+  .menu {
+    width: 4rem;
+    height: 6rem;
+    background: linear-gradient(white, red, orange);
+    top: 1rem;
+    left: 5rem;
+    position: fixed;
+    border-radius: 30rem 30rem 15rem 15rem;
+    box-shadow: .1rem .1rem .1rem #000, -.1rem -.1rem -.1rem #000;
+    cursor: pointer;
+    transition: top .3s .2s, background .3s;
+  }
+
+  .menu.change {
+    top: 15rem;
+    transition: top .4s .2s, background .3s;
+    background: linear-gradient(yellow, rgb(123, 247, 123), rgb(113, 113, 255));
+  }
+
+  .menu::before {
+    content: '';
+    width: .3rem;
+    height: 15rem;
+    position: absolute;
+    top: -15rem;
+    left: calc(50% - .15rem);
+    background-color: black;
+    box-shadow: .1rem 0rem .1rem #000,
+  }
+
+  /* Nav Meni for mobile */
+  .navbar-mobile {
+    display: none;
+  }
+/* End of Nav */
+
+.section-1 {
+  width: 100%;
+  height: 100vh;
+  background-color: #222;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  padding: var(--section-padding) 0;
+  user-select: none;
+}
+
+.section-1 svg {
+  font-size: 20rem;
+  position: absolute;
+  transform: translate(-50%, -50%) scale(0);
+  transition: .3s;
+}
+/* End Section 1 */
+
+/* Start Section 2 */
+.section-2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #555;
+  padding: var(--section-padding) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.card {
+  width: 30rem;
+  /* height: 100%; */
+  background-color: rgb(255, 226, 171);
+  padding: 2.5rem 1.5rem;
+  margin: 2rem 3rem;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-radius: 0 .5rem 1rem .5rem;
+  transform: skew(2deg);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-2rem) skew(2deg);
+  transition: .3s;
+}
+
+/* Start Making Card 3D */
+  .card::before {
+    content: '';
+    width: 100%;
+    height: .8rem;
+    position: absolute;
+    background-color: black;
+    top: -.8rem;
+    right: 0;
+    transform: skewX(45deg);
+    transform-origin: bottom;
+    box-shadow: -1rem -1rem 2rem black;
+  }
+  
+  .card::after {
+    content: '';
+    height: 100%;
+    width: .8rem;
+    position: absolute;
+    background-color: black;
+    left: -.8rem;
+    top: 0;
+    transform: skewY(45deg);
+    transform-origin: right;
+    box-shadow: -1rem -1rem 2rem black;
+  }
+/* End 3D */
+
+.card .card-img {
+  width: 100%;
+  display: block;
+}
+
+.card .card-name {
+  font-size: 2.7rem;
+  text-transform: capitalize;
+  font-weight: 800;
+  letter-spacing: .2rem;
+}
+
+.card button {
+  width: 75%;
+  text-transform: capitalize;
+  border: .2rem solid transparent;
+  padding: 1.4rem 0;
+  background-color: violet;
+  border-radius: 1rem;
+  font-size: 2.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: -1rem -1rem 2rem black;
+  transition: .3s;
+  margin-top: 5rem;
+}
+
+.card button:hover {
+  background-color: blanchedalmond;
+  border-color: green;
+  transition: .3s;
+}
+/* End of Section 2 */
+
+/* Start Section 3 */
+  .section-3 {
+    width: 100%;
+    /* height: 100vh; */
+    background-color: #222;
+    padding: var(--section-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .gallery-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .gallery-wrapper .gallery-link {
+    margin: 4rem 2rem; 
+    position: relative;
+    display: block;
+    overflow: hidden;
+    box-shadow: .5rem .5rem darkgoldenrod, 1rem 1rem cyan, 1.5rem 1.5rem violet;
+    transition: .3s;
+  }
+
+  .gallery-wrapper .gallery-link:hover {
+    box-shadow: 2rem 2rem darkgoldenrod, 2.5rem 2.5rem cyan, 3rem 3rem violet;
+    transform: scale(1.05);
+    transition: .3s;
+  }
+  
+  /* Make horizontal and vertical lines */
+  
+  .gallery-wrapper .gallery-link::before { /* horizontal line */
+    content: '';
+    width: 0%;
+    height: .3rem;
+    position: absolute;
+    background-color: white;
+    top: 22.5%;
+    left: 4rem;
+    border-radius: 1rem;
+    z-index: 1;
+    transition: .3s;
+  }
+  
+  .gallery-wrapper .gallery-link:hover::before {
+    width: 80%;
+    transition: .3s;
+    }
+    
+    .gallery-wrapper .gallery-link::after { /* vertical line */
+      content: '';
+      height: 0%;
+      width: .3rem;
+      position: absolute;
+      background-color: white;
+      right: 20%;
+      top: 2rem;
+      border-radius: 1rem;
+      transition: .3s;
+    }
+
+    .gallery-wrapper .gallery-link:hover::after {
+      height: 90%;
+      transition: .3s;
+    }
+
+  /* End horizontal and vertical lines */
+
+  .gallery-wrapper .gallery-link img {
+    width: 24vw;
+    height: 24vw;
+    object-fit: cover;
+    display: block;
+    transition: .3s;
+  }
+
+  .gallery-wrapper .gallery-link:hover img {
+    opacity: .3;
+    transition: .3s;
+  }
+
+  .gallery-wrapper .gallery-link h3 {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    opacity: 0;
+    color: white;
+    text-transform: capitalize;
+    font-size: 2.5rem;
+    transition: .3s
+  }
+
+  .gallery-wrapper .gallery-link:hover h3 {
+    opacity: 1;
+    transition: .3s .3s;
+  }
+
+  .gallery-wrapper .gallery-link p {
+    position: absolute;
+    width: 75%;
+    top: 30%;
+    left: -100%;
+    color: white;
+    text-transform: capitalize;
+    font-size: 1.7rem;
+    transition: .3s;
+  }
+
+  .gallery-wrapper .gallery-link:hover p {
+    left: 10%;
+    transition: .3s .4s;
+  }
+/* End  of Section 3 */
+
+/* Start Section 4 */
+  .section-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 30vh;
+    padding: calc(var(--section-padding) / 2) var(--section-padding) 3rem var(--section-padding);
+    background-color: #555555;
+  }
+
+  .section-4 .first-half h2 {
+    font-size: 3.5rem;
+    color: yellow;
+    text-transform: uppercase;
+  }
+
+  .section-4 .first-half p {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.479);
+    text-transform: uppercase;
+  }
+
+  .section-4 footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .section-4 footer form {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-4 footer form input {
+    width: 35rem;
+    height: 5rem;
+    padding: 1rem;
+    border: 0.2rem solid #a79a2d;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    color: #a79a2d;
+    /* position: relative; */
+  }
+
+  .section-4 footer form button {
+    position: absolute;
+    right: .5rem;
+    width: 4rem;
+    height: 4rem;
+    background-color: #333;
+    color: #a79a2d;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .section-4 footer form button svg {
+    fill: white;
+  }
+
+  .last-p {
+    padding-top: 2rem;
+    border-top: .3rem solid white;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    max-width: 100%;
+  }
+
+  /* .last-p::before {
+    content: '';
+    width: 100%;
+    height: .2rem;
+    background-color: #000;
+    position: absolute;
+    left: 0;
+    top: -30px;
+  } */
+
+/* End of Section 4 */
+
+/* Start Medai Query */
+  @media(max-width: 1400px) {
+    html {
+      font-size: 50%;
+    }
+    .section-2 {
+      height: auto;
+      padding: 10rem 0 12rem 0;
+    }
+    .cards-wrapper {
+      margin-top: 10rem;
+    }
+    .gallery-link {
+      width: 40rem;
+      height: 25rem;
+    }
+    .gallery-wrapper .gallery-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .section-4 {
+      height: 25vh;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .special-heading {
+      font-size: 9rem;
+      margin: 0 5rem;
+    }
+    .cards-wrapper {
+      flex-wrap: wrap;
+    }
+    .card {
+      margin: 5rem;
+    }
+    .section-4 {
+      height: 25rem;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .navbar-link {
+      margin: 0 2rem;
+    }
+    .navbar-link i {
+      font-size: 3.5rem;
+    }
+    .navbar-link span {
+      font-size: 2.25rem;
+    }
+  }
+  
+  @media (max-width: 700px) {
+    .special-heading {
+      font-size: 7rem;
+      margin: 0 10rem;
+    }
+    .menu {
+      left: 2rem;
+    }
+    .section-4 {
+      height: 32rem;
+    }
+    .section-4 footer {
+      flex-direction: column;
+      text-align: center;
+    }
+    .section-4 footer form {
+      margin-top: 4rem;
+    }
+  }
+
+  /* Navbar for mobiles */
+
+    @media (max-width: 600px) {
+      .tablet {
+        display: none;
+      }
+      .navbar-mobile {
+        position: fixed;
+        left: -50%;
+        top: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        height: 75%;
+        background-color: black;
+        border-radius: 0 5rem 5rem 0;
+        z-index: 1;
+        transition: .3s;
+      }
+
+      .navbar-mobile.left-50 {
+        left: 0%;
+      }
+
+      /* Burger Icon */
+        .burger-icon {
+          position: fixed;
+          padding: 3rem 4rem;
+          left: 1rem;
+          top: 1rem;
+          display: block;
+          cursor: pointer;
+          transition: .3s;
+          z-index: 3;
+        }
+        
+        .burger-icon span {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5rem;
+          height: .5rem;
+          background-color: cornsilk;
+          transition: .3s;
+        }
+
+        .burger-icon span.complete::before {
+          width: 100%;
+          transition: .3s;
+        }
+
+        .burger-icon > span::before {
+          content: '';
+          position: absolute;
+          top: 0rem;
+          left: 0;
+          width: 50%;
+          height: 100%;
+          background-color: cornsilk;
+          margin-top: 1.5rem;
+          transition: .3s;
+          
+        }
+        
+        .burger-icon > span::after {
+          content: '';
+          position: absolute;
+          top: 0rem;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: cornsilk;
+          margin-top: 3rem;
+          transition: .3s;
+        }
+      /* End of Burger Icon */
+
+      .nav-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .navbar-link-mobile {
+        margin: 2rem 0;
+      }
+
+      .navbar-link i {
+        font-size: 4.5rem;
+      }
+      .navbar-link span {
+        font-size: 2.7rem;
+      }
+    }
+  /* End of Navbar for mobiles */
+
+  @media (max-width: 550px) {
+    html {
+      font-size: 40%;
+    }
+  }
+
+/* End of Medai Query */
+
+/* ********** PROJECT ENDED ********** */
+
+/* **** AbdElRahman Mostafa 23/7 **** */
